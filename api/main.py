@@ -1,6 +1,7 @@
 from fastapi import FastAPI, APIRouter
 import uvicorn
 from routers.auth_router import auth_router
+from settings import path_settings
 
 
 app = FastAPI(title="fastapi_api_yamdb")
