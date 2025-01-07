@@ -1,0 +1,19 @@
+version: '3.8'  # Укажите актуальную версию
+
+services:
+  db:
+    container_name: "db"
+    image: postgres:17-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - custom_network
+
+networks:
+  custom_network:
+    driver: bridge

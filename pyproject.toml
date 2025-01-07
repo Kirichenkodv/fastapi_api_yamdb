@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "fastapi-api-yamdb"
+version = "0.1.0"
+description = ""
+authors = ["kirichenko dmitriy <kirichenko.dmitriy1977@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.115.6"
+pydantic = {extras = ["email"], version = "^2.10.4"}
+uvicorn = {extras = ["standart"], version = "^0.34.0"}
+alembic = "^1.14.0"
+envparse = "^0.2.0"
+psycopg2 = "^2.9.10"
+asyncpg = "^0.30.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
