@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from typing import Union
 
 import jwt
 
@@ -13,7 +14,8 @@ def encode_jwt(
     private_key: str = path_settings.auth_jwt.private_key_path.read_text(),
     algorithm: str = path_settings.auth_jwt.algorithm,
     expire_minutes: int = path_settings.auth_jwt.access_token_expire_minutes,
-    expire_timedelta: timedelta | None = None,
+    # expire_timedelta: timedelta | None = None,
+    expire_timedelta: Union[timedelta, None] = None
 ) -> str:
     to_encode = payload.copy()
     now = datetime.utcnow()
@@ -34,7 +36,7 @@ def encode_jwt(
 
 
 def decode_jwt(
-    token: str | bytes,
+    token: Union[str, bytes],
     public_key: str = path_settings.auth_jwt.public_key_path.read_text(),
     algorithm: str = path_settings.auth_jwt.algorithm,
 ) -> dict:
